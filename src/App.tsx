@@ -76,7 +76,7 @@ function App() {
   return (
     <div className="min-h-screen relative overflow-x-hidden">
       {/* Aurora Background */}
-      <div className="fixed inset-0 z-0">
+      <div className="fixed inset-0 w-full h-screen z-0">
         <Aurora
           colorStops={["#2D1B69", "#0891B2", "#2D1B69"]}
           amplitude={1.2}
@@ -84,6 +84,15 @@ function App() {
           speed={0.8}
         />
       </div>
+      
+      {/* Extended background for scrolling */}
+      <div 
+        className="absolute inset-0 z-0 w-full"
+        style={{
+          background: 'linear-gradient(135deg, #2D1B69 0%, #0891B2 50%, #2D1B69 100%)',
+          minHeight: '100%'
+        }}
+      />
       
       {/* Content */}
       <div className="relative z-10">
@@ -100,10 +109,10 @@ function App() {
               
               {/* Desktop Navigation */}
               <div className="hidden md:flex items-center space-x-8">
-                <a href="#features" className="text-white/80 hover:text-white transition-colors">Product</a>
-                <a href="#pricing" className="text-white/80 hover:text-white transition-colors">Pricing</a>
-                <a href="#enterprise" className="text-white/80 hover:text-white transition-colors">Enterprise</a>
-                <Button variant="outline" className="border-white/30 text-white hover:bg-white/10">
+                <a href="#features" className="text-white/80 hover:text-white transition-colors font-medium">Product</a>
+                <a href="#pricing" className="text-white/80 hover:text-white transition-colors font-medium">Pricing</a>
+                <a href="#enterprise" className="text-white/80 hover:text-white transition-colors font-medium">Enterprise</a>
+                <Button className="bg-white/10 backdrop-blur-sm border border-white/30 text-white hover:bg-white/20 hover:border-white/50 transition-all duration-300">
                   Login
                 </Button>
               </div>
@@ -120,13 +129,13 @@ function App() {
 
           {/* Mobile Navigation */}
           {isMenuOpen && (
-            <div className="md:hidden backdrop-blur-xl bg-[#1a223a]/60 border-t border-teal-400/30">
+            <div className="md:hidden backdrop-blur-xl bg-[#1a223a]/80 border-t border-teal-400/30">
               <div className="px-2 pt-2 pb-3 space-y-1">
-                <a href="#features" className="block px-3 py-2 text-white/80 hover:text-white">Product</a>
-                <a href="#pricing" className="block px-3 py-2 text-white/80 hover:text-white">Pricing</a>
-                <a href="#enterprise" className="block px-3 py-2 text-white/80 hover:text-white">Enterprise</a>
+                <a href="#features" className="block px-3 py-2 text-white/80 hover:text-white font-medium">Product</a>
+                <a href="#pricing" className="block px-3 py-2 text-white/80 hover:text-white font-medium">Pricing</a>
+                <a href="#enterprise" className="block px-3 py-2 text-white/80 hover:text-white font-medium">Enterprise</a>
                 <div className="px-3 py-2">
-                  <Button variant="outline" className="w-full border-white/30 text-white hover:bg-white/10">
+                  <Button className="w-full bg-white/10 backdrop-blur-sm border border-white/30 text-white hover:bg-white/20 hover:border-white/50 transition-all duration-300">
                     Login
                   </Button>
                 </div>
@@ -141,10 +150,11 @@ function App() {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Left Side - Content */}
               <div className="text-center lg:text-left">
-                <h1 className="font-display text-5xl lg:text-6xl font-bold text-white mb-6">
-                  Resolve <span className="text-green-400">87%</span> of Support Tickets Instantly with AI
+                <h1 className="font-display text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+                  Resolve <span className="text-green-400 font-extrabold">87%</span> of Support Tickets<br />
+                  <span className="bg-gradient-to-r from-teal-400 to-blue-400 bg-clip-text text-transparent">Instantly with AI</span>
                 </h1>
-                <p className="text-xl text-white/80 mb-8 max-w-2xl">
+                <p className="text-xl lg:text-2xl text-white/90 mb-8 max-w-2xl font-medium leading-relaxed">
                   Transform your customer support with intelligent automation that learns from every interaction
                 </p>
                 
@@ -172,11 +182,11 @@ function App() {
 
                 {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                  <Button size="lg" className="bg-green-500 hover:bg-green-600 text-white font-semibold px-8">
+                  <Button size="lg" className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold px-8 shadow-lg shadow-green-500/25 transition-all duration-300 hover:scale-105">
                     Start Free Trial
                     <ChevronRight className="w-4 h-4 ml-2" />
                   </Button>
-                  <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10">
+                  <Button size="lg" className="bg-white/10 backdrop-blur-sm border border-white/30 text-white hover:bg-white/20 hover:border-white/50 font-medium px-8 transition-all duration-300 hover:scale-105">
                     Schedule Demo
                   </Button>
                 </div>
@@ -245,10 +255,10 @@ function App() {
         <section id="features" className="py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="font-display text-4xl font-bold text-white mb-4">
+              <h2 className="font-display text-4xl lg:text-5xl font-bold text-white mb-6">
                 Enterprise-Grade AI Support
               </h2>
-              <p className="text-xl text-white/80 max-w-3xl mx-auto">
+              <p className="text-xl lg:text-2xl text-white/80 max-w-3xl mx-auto font-medium">
                 Powerful features designed to handle your support workload while maintaining the human touch your customers love
               </p>
             </div>
@@ -308,10 +318,10 @@ function App() {
         <section id="pricing" className="py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="font-display text-4xl font-bold text-white mb-4">
+              <h2 className="font-display text-4xl lg:text-5xl font-bold text-white mb-6">
                 Simple, Transparent Pricing
               </h2>
-              <p className="text-xl text-white/80">
+              <p className="text-xl lg:text-2xl text-white/80 font-medium">
                 Choose the plan that fits your team size and support volume
               </p>
             </div>
@@ -395,13 +405,13 @@ function App() {
                   </ul>
                   
                   <Button 
-                    className={`w-full ${
+                    className={`w-full font-semibold transition-all duration-300 hover:scale-105 ${
                       plan.popular 
-                        ? 'bg-green-500 hover:bg-green-600 text-white' 
-                        : 'bg-white/10 hover:bg-white/20 text-white border border-white/30'
+                        ? 'bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white shadow-lg shadow-green-500/25' 
+                        : 'bg-white/10 backdrop-blur-sm border border-white/30 text-white hover:bg-white/20 hover:border-white/50'
                     }`}
                   >
-                    Start Free Trial
+                    {plan.popular ? 'Start Free Trial' : 'Get Started'}
                   </Button>
                 </Card>
               ))}
@@ -413,34 +423,35 @@ function App() {
         <section className="py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="font-display text-3xl font-bold text-white mb-4">
+              <h2 className="font-display text-3xl lg:text-4xl font-bold text-white mb-4">
                 Trusted by Leading Companies
               </h2>
+              <p className="text-lg text-white/70 font-medium">Join thousands of teams already using SupportAI</p>
             </div>
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center opacity-60">
               {['TechCorp', 'GlobalServices', 'InnovateInc', 'DataFlow'].map((company, index) => (
                 <div key={index} className="text-center">
-                  <div className="text-2xl font-bold text-white">{company}</div>
+                  <div className="text-2xl font-bold text-white font-display">{company}</div>
                 </div>
               ))}
             </div>
 
             {/* Testimonial */}
             <div className="mt-16 max-w-4xl mx-auto">
-              <Card className="bg-[#1a223a]/40 backdrop-blur-2xl border-teal-400/40 shadow-lg p-8 text-center">
-                <div className="flex justify-center mb-4">
+              <Card className="bg-[#1a223a]/40 backdrop-blur-2xl border-teal-400/40 shadow-lg p-8 lg:p-12 text-center">
+                <div className="flex justify-center mb-6">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                    <Star key={i} className="w-6 h-6 text-yellow-400 fill-current" />
                   ))}
                 </div>
-                <blockquote className="text-xl text-white/90 mb-6">
+                <blockquote className="text-xl lg:text-2xl text-white/90 mb-8 font-medium leading-relaxed">
                   "SupportAI reduced our response time by 75% and increased customer satisfaction scores. 
                   The ROI was evident within the first month."
                 </blockquote>
-                <div className="text-white/70">
-                  <div className="font-semibold">Sarah Johnson</div>
-                  <div className="text-sm">VP of Customer Success, TechCorp</div>
+                <div className="text-white/80">
+                  <div className="font-semibold text-lg">Sarah Johnson</div>
+                  <div className="text-white/60 font-medium">VP of Customer Success, TechCorp</div>
                 </div>
               </Card>
             </div>

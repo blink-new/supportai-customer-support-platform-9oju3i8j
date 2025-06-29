@@ -84,10 +84,14 @@ module.exports = {
       fontFamily: {
         sans: [
           'Inter',
+          'system-ui',
+          '-apple-system',
+          'BlinkMacSystemFont',
           'sans-serif'
         ],
         display: [
-          'SF Pro Display',
+          'Space Grotesk',
+          'Inter',
           'system-ui',
           'sans-serif'
         ]
